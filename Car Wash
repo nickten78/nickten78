@@ -25,7 +25,7 @@
 					$price = 30.00;
 					break;
 				default:
-					$price = 0.00;
+					$price = 25.00;
 			}
 
 			// Display the price to the user
