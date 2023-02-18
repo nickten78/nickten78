@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Car Wash</title>
+</head>
+<body>
+
+	<h1>Car Wash</h1>
+
+	<?php
+		// Check if the form has been submitted
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			// Get the selected wash package
+			$wash_package = $_POST["wash_package"];
+
+			// Calculate the price based on the selected package
+			switch ($wash_package) {
+				case "basic":
+					$price = 10.00;
+					break;
+				case "deluxe":
+					$price = 20.00;
+					break;
+				case "premium":
+					$price = 30.00;
+					break;
+				default:
+					$price = 0.00;
+			}
+
+			// Display the price to the user
+			if ($price > 0) {
+				echo "<p>The price for the $wash_package wash is $$price.</p>";
+			} else {
+				echo "<p>Please select a valid wash package.</p>";
+			}
+		}
+	?>
+
+	<form method="post">
+		<label for="wash_package">Select a wash package:</label>
+		<select id="wash_package" name="wash_package">
+			<option value="basic">Basic ($10.00)</option>
+			<option value="deluxe">Deluxe ($20.00)</option>
+			<option value="premium">Premium ($30.00)</option>
+		</select>
+		<button type="submit">Submit</button>
+	</form>
+
+</body>
+</html>
